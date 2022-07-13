@@ -63,6 +63,9 @@ TelayAudioProcessor::~TelayAudioProcessor()
     mCircularBufferLeft.reset();
     mCircularBufferRight.reset();
 
+    delete mCircularBufferLeft.get();
+    delete mCircularBufferRight.get();
+
     mCircularBufferWriteHead = 0;
     mCircularBufferLength = 0;
     mDelayReadHead = 0.0;

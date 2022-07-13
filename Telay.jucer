@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="ipsmft" name="Telay" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              companyWebsite="t2info.tech" bundleIdentifier="com.t2tech.Telay"
+              aaxIdentifier="com.t2tech.Telay" pluginManufacturer="t2tech"
+              pluginDesc="Delay, Flanger, Chorus">
   <MAINGROUP id="le7Xak" name="Telay">
     <GROUP id="{6278F554-9FAE-65F8-4CDF-A108A7CC53E3}" name="Source">
       <FILE id="TswGvT" name="PluginProcessor.cpp" compile="1" resource="0"
