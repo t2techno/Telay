@@ -23,7 +23,7 @@ class TelayAudioProcessor : public juce::AudioProcessor
 public:
     //==============================================================================
     TelayAudioProcessor();
-    ~TelayAudioProcessor() override;
+    virtual ~TelayAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay(double sampleRate, int samplesPerBlock) override;
@@ -65,8 +65,8 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TelayAudioProcessor);
-
+    //JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TelayAudioProcessor);
+    JUCE_HEAVYWEIGHT_LEAK_DETECTOR(TelayAudioProcessor);
 
     // Parameter Decleration
     juce::AudioProcessorValueTreeState params;

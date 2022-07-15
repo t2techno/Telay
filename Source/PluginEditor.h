@@ -11,6 +11,9 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
+#define WINDOW_HEIGHT 480
+#define WINDOW_WIDTH  480
+
 //==============================================================================
 /**
 */
@@ -31,7 +34,7 @@ private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     TelayAudioProcessor& audioProcessor;
-
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TelayAudioProcessorEditor)
         juce::AudioProcessorValueTreeState& valueTreeState;
     juce::Slider mDryWetSlider;
@@ -55,5 +58,6 @@ private:
     std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> mPhaseOffsetAttach;
 
     juce::ComboBox mType;
+    juce::Label mTypeLabel;
     std::unique_ptr <juce::AudioProcessorValueTreeState::ComboBoxAttachment> mTypeAttach;
 };

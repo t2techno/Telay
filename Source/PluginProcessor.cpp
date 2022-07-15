@@ -33,7 +33,7 @@ TelayAudioProcessor::TelayAudioProcessor()
             std::make_unique<juce::AudioParameterFloat>(DRY_WET_ID, "Dry Wet", 0.0f, 1.0f, 0.5f),
             std::make_unique<juce::AudioParameterFloat>(FEEDBACK_ID, "Feedback", 0.0f, 0.98f, 0.5f),
             std::make_unique<juce::AudioParameterFloat>(DEPTH_ID, "Depth", 0.0f, 1.0f, 0.5f),
-            std::make_unique<juce::AudioParameterFloat>(RATE_ID, "Rate", 0.1f, 20.f, 10.f),
+            std::make_unique<juce::AudioParameterFloat>(RATE_ID, "Rate", 0.1f, MAX_DELAY_TIME * 10, 10.f),
             std::make_unique<juce::AudioParameterFloat>(PHASE_OFFSET_ID, "Phase Offset", 0.0f, 1.f, 0.f),
             std::make_unique<juce::AudioParameterInt>(TYPE_ID, "Type", 0, 2, 0)
         }
@@ -62,9 +62,6 @@ TelayAudioProcessor::~TelayAudioProcessor()
 {
     mCircularBufferLeft.reset();
     mCircularBufferRight.reset();
-
-    delete mCircularBufferLeft.get();
-    delete mCircularBufferRight.get();
 
     mCircularBufferWriteHead = 0;
     mCircularBufferLength = 0;
@@ -145,15 +142,19 @@ void TelayAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
 
     mCircularBufferLength = sampleRate * MAX_DELAY_TIME;
     if (mCircularBufferLeft == nullptr) {
-        mCircularBufferLeft = std::unique_ptr<float[]>(new float[mCircularBufferLength]);
+        mCircularBufferLeft = std::make_unique<float[]>(mCircularBufferLength);
     }
-    mCircularBufferLeft.reset(new float[mCircularBufferLength]);
+    else {
+        mCircularBufferLeft.reset(new float[mCircularBufferLength]);
+    }
     juce::zeromem(mCircularBufferLeft.get(), sizeof(float) * mCircularBufferLength);
 
     if (mCircularBufferRight == nullptr) {
-        mCircularBufferRight = std::unique_ptr<float[]>(new float[mCircularBufferLength]);
+        mCircularBufferRight = std::make_unique<float[]>(mCircularBufferLength);
     }
-    mCircularBufferRight.reset(new float[mCircularBufferLength]);
+    else {
+        mCircularBufferRight.reset(new float[mCircularBufferLength]);
+    }
     juce::zeromem(mCircularBufferRight.get(), sizeof(float) * mCircularBufferLength);
 
     mTimeSmoothed = *mRateParameter/10;
