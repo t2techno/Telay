@@ -11,7 +11,7 @@ To run:
 7. In the next field down, add your DAW's vst3 location. Ex: C:/vst3
 8. Export to your selected IDE
 
-If Visual Studios-Windows (That's what I use. Version 17.2.5 at time of writing)
+If Visual Studios-Windows (That's what I use. Version 17.2.6 at time of writing)
 
 9. Right click on Telay_VST3 solution in Solution Explorer
 10. Set as Startup Project
