@@ -31,5 +31,5 @@ If Visual Studios-Windows (That's what I use. Version 17.2.5 at time of writing)
 
 To do's:
 1. Add labels
-2. Fix memory leaks
-3. Improve interpolation method
+2. Improve interpolation method
+3. Make Prettier

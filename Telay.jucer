@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="ipsmft" name="Telay" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
-              companyWebsite="t2info.tech" bundleIdentifier="com.t2tech.Telay"
+              companyWebsite="t2tech.info" bundleIdentifier="com.t2tech.Telay"
               aaxIdentifier="com.t2tech.Telay" pluginManufacturer="t2tech"
               pluginDesc="Delay, Flanger, Chorus">
   <MAINGROUP id="le7Xak" name="Telay">
