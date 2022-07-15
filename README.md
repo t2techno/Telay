@@ -30,6 +30,6 @@ If Visual Studios-Windows (That's what I use. Version 17.2.6 at time of writing)
 
 
 To do's:
-1. Add labels
-2. Improve interpolation method
-3. Make Prettier
+1. Improve interpolation method
+2. Add pingpong delay mode
+3. Add fixed-rhythm mode
